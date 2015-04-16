@@ -19,6 +19,7 @@ hold
 plot(x0, y0)
 hold off
 
+% Draws a Vector Field
 hold
 for x1 = [init_x:step/2:fin_x]
     % Use the min and max of y1 to determine best range
