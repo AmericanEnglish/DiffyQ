@@ -6,7 +6,7 @@ syms f(x, y)
 f(x, y) = sym (input('y'' = ', 's'))
 cla
 
-% Equation 4 eulers -> y1 = y0 + step/2 
+% Calculate Improved Eulers
 x0 = [init_x]
 y0 = [init_y]
 counter = 0
