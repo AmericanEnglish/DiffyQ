@@ -1,19 +1,20 @@
+function eulers(init_x, fin_x, init_y, var, step)
 cla
 % First setup the variable for automation
 syms f(x,y)
 
 % Then actually setup the equation in question
-f(x,y) = x - y
-init_x = 0
-fin_x = 1
-init_y = 1
-y_max = 2
-step = .125
+f(x,y) = sym (input('y'' = ', 's'))
+%init_x = 0
+%fin_x = 1
+%init_y = 1
+%var = 2
+%step = .125
 % Vector Field
 % Divide the step by 2 for a more accurate vector field
 hold
 for x0 = [init_x:step/2:fin_x]
-    for y0 = [init_y:step/2:y_max]
+    for y0 = [init_y - var:step/2:init_y + var]
         x_temp = [-step/2, step/2]*.25;
         y_temp = f(x0, y0) * x_temp;
         len = sqrt(x_temp(1)^2 + x_temp(2) ^ 2);
