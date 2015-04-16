@@ -28,7 +28,7 @@ counter = 0
 while counter < (fin_x - init_x) / step
     counter =  counter + 1
     x1(counter + 1) = x1(counter) + step
-    y1(counter + 1) = y1(counter) * step + y1(counter)
+    y1(counter + 1) = f(x1(counter), y1(counter)) * step + y1(counter)
 end
 plot(x1, y1)
 hold off
