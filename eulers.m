@@ -15,8 +15,8 @@ hold
 for x0 = [init_x:step/2:fin_x]
     for y0 = [init_y:step/2:y_max]
         x_temp = [-step/2, step/2]*.25
-        y_temp = f(x0, y0) * x
-        len = sqrt(x(1)^2 + x(2) ^ 2)
+        y_temp = f(x0, y0) * x_temp
+        len = sqrt(x_temp(1)^2 + x_temp(2) ^ 2)
         plot(x_temp+x0, y_temp+y0)
     end
 end
