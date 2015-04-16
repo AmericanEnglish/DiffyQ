@@ -4,6 +4,11 @@ This project was given to me by my Differential Equations teacher Marco Weidenho
 
 # Progress
 - Done
-    - Nothing.
+    - Euler's Method
+    - Improve Euler's Method
 - To Do
-    - Everything . . .
+    - Runge - Kotta Classical 4th Order
+    - Taylor Series Differentiation
+    - Combining All 4
+    - Providing Verbose Graphing Options (kind of)
+
