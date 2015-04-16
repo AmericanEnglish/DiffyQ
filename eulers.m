@@ -5,11 +5,7 @@ syms f(x,y)
 
 % Then actually setup the equation in question
 f(x,y) = sym (input('y'' = ', 's'))
-%init_x = 0
-%fin_x = 1
-%init_y = 1
-%var = 2
-%step = .125
+
 % Vector Field
 % Divide the step by 2 for a more accurate vector field
 hold
