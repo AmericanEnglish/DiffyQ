@@ -15,7 +15,11 @@ while counter < (fin_x - init_x) / step
     x(counter + 1) = x(counter) + step
     y(counter + 1) = y(counter) + step / 2 * (2*x(counter)*y(counter)+2*(x(counter + 1))*(y(counter) + step * (2 * x(counter) * y(counter))))
 end
+hold
+plot(x0, y0)
+hold off
 
+hold 
 for x1 = [init_x:step/2:fin_x]
     % Use the min and max of y1 to determine best range
     for y1 = [min(y1):step/2:max(y1)]
@@ -25,3 +29,5 @@ for x1 = [init_x:step/2:fin_x]
         plot(x_temp + x1, y_temp + y1);
     end
 end
+hold off
+disp('Finished Graphing.')
