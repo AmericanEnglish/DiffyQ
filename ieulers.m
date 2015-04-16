@@ -7,13 +7,13 @@ f(x, y) = sym (input('y'' = ', 's'))
 cla
 
 % Calculate Improved Eulers
-x0 = [init_x]
-y0 = [init_y]
-counter = 0
-while counter < (fin_x - init_x) / step
-    counter = counter + 1
-    x0(counter + 1) = x0(counter) + step
-    y0(counter + 1) = y0(counter) + step / 2 * (f(x0(counter), y0(counter)) + f(x0(counter + 1), y0(counter) + step * f(x0(counter), y0(counter))))
+x0 = [init_x];
+y0 = [init_y];
+counter = 0;
+while counter < (fin_x - init_x) / step;
+    counter = counter + 1;
+    x0(counter + 1) = x0(counter) + step;
+    y0(counter + 1) = y0(counter) + step / 2 * (f(x0(counter), y0(counter)) + f(x0(counter + 1), y0(counter) + step * f(x0(counter), y0(counter))));
 end
 hold
 plot(x0, y0)
