@@ -39,6 +39,16 @@ These functions all take the same parameters: initial x, initial y, final x, ste
 
 Otherwise, I might add some more documentation later. Doubtful.
 
-1. Item 1
-2. Item 2
-3. Item 3
+First and foremost there are 4 methods
+1. Classic Eulers
+    * x1 = x0 + h
+    * y1 = h * y'(x,y) + y0
+2. Improved Eulers
+    * x1 = x0 + h
+    * To be done later
+3. Taylor Series (4th order)
+    * x1 = x0 + h
+    * To be done later
+4. Runge-Kotta Classical 4th Order
+    * x1 = x0 + h
+    * To be done later
