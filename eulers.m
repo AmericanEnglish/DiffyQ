@@ -10,6 +10,7 @@ hold ;
 x1 = [init_x];
 y1 = [init_y];
 counter = 0;
+disp('Calculating Values . . .')
 while counter < (fin_x - init_x) / step
     counter =  counter + 1;
     x1(counter + 1) = x1(counter) + step;
