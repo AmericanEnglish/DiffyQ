@@ -20,16 +20,16 @@ These four routines are using for numerical differentiation of first order, ordi
 
 First and foremost there are 4 methods
 
-- Classic Eulers
+1. Classic Eulers
     * x1 = x0 + h
     * y1 = h * y'(x,y) + y0
-- Improved Eulers
+2. Improved Eulers
     * x1 = x0 + h
     * To be done later
-- Taylor Series (4th order)
+3. Taylor Series (4th order)
     * x1 = x0 + h
     * To be done later
-- Runge-Kotta Classical 4th Order
+4. Runge-Kotta Classical 4th Order
     * x1 = x0 + h
     * To be done later
 
