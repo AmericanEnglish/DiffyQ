@@ -19,16 +19,17 @@ This project was given to me by my Differential Equations teacher Marco Weidenho
 These four routines are using for numerical differentiation of first order, ordinary, differenetial equations. If you don't know what those are, you could always try googiling them or perhaps checking on amazon for a textbook. Otherwise
 
 First and foremost there are 4 methods
-1. Classic Eulers
+
+- Classic Eulers
     * x1 = x0 + h
     * y1 = h * y'(x,y) + y0
-2. Improved Eulers
+- Improved Eulers
     * x1 = x0 + h
     * To be done later
-3. Taylor Series (4th order)
+- Taylor Series (4th order)
     * x1 = x0 + h
     * To be done later
-4. Runge-Kotta Classical 4th Order
+- Runge-Kotta Classical 4th Order
     * x1 = x0 + h
     * To be done later
 
@@ -38,17 +39,3 @@ The fifth routine just graphs all four on the same plot space.
 These functions all take the same parameters: initial x, initial y, final x, step size. In that order. After entering these values you will then be prompted for you to input your first order differential. it is important to note that you **MUST** enter the equation with matlab syntax intact. No implicity anything and lots of helpful parathesis.
 
 Otherwise, I might add some more documentation later. Doubtful.
-
-First and foremost there are 4 methods
-1. Classic Eulers
-    * x1 = x0 + h
-    * y1 = h * y'(x,y) + y0
-2. Improved Eulers
-    * x1 = x0 + h
-    * To be done later
-3. Taylor Series (4th order)
-    * x1 = x0 + h
-    * To be done later
-4. Runge-Kotta Classical 4th Order
-    * x1 = x0 + h
-    * To be done later
