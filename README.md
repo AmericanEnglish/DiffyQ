@@ -38,3 +38,7 @@ The fifth routine just graphs all four on the same plot space.
 These functions all take the same parameters: initial x, initial y, final x, step size. In that order. After entering these values you will then be prompted for you to input your first order differential. it is important to note that you **MUST** enter the equation with matlab syntax intact. No implicity anything and lots of helpful parathesis.
 
 Otherwise, I might add some more documentation later. Doubtful.
+
+1. Item 1
+2. Item 2
+3. Item 3
