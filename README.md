@@ -15,7 +15,7 @@ This project was given to me by my Differential Equations teacher Marco Weidenho
     - Gui
         * Most likely during the summer as a side project
 
-## Explantion:
+## Explantion
 These four routines are using for numerical differentiation of first order, ordinary, differenetial equations. If you don't know what those are, you could always try googiling them or perhaps checking on amazon for a textbook. Otherwise
 
 First and foremost there are 4 methods
