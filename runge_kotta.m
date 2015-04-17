@@ -6,18 +6,17 @@ syms f(x,y)
 f(x, y) = sym (input('y'' = ', 's'))
 syms k1(x,y) k2(x,y) k3(x,y) k4(x,y)
 % Set up k1 -> k4
-k1(x,y) = h * f(x, y) 
-k2(x,y) = h * f(x + h / 2, y + k1 / 2)
-k3(x,y) = h * f(x + h  / 2, y + k2 / 2)
-k4(x,y) = h * f(x + h, y + k3)
+k1(x,y) = h * f(x, y);
+k2(x,y) = h * f(x + h / 2, y + k1 / 2);
+k3(x,y) = h * f(x + h  / 2, y + k2 / 2);
+k4(x,y) = h * f(x + h, y + k3);
 
 % Calculate using h values
-x0 = [init_x]
-y0 = [init_y]
-counter = 0
+x0 = [init_x];
+y0 = [init_y];
+counter = 0;
 % Plot the approximations
 disp('Calculating Data Points . . .')
-k1(x0(1), y0(1))
 while counter < (fin_x - init_x) / h;
     counter = counter + 1;
     x0(counter + 1) = x0(counter) + h;
