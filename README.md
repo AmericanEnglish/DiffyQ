@@ -6,8 +6,8 @@ This project was given to me by my Differential Equations teacher Marco Weidenho
 - Done
     - Euler's Method
     - Improve Euler's Method
-- To Do
     - Runge - Kotta Classical 4th Order
+- To Do
     - Taylor Series Differentiation
     - Combining All 4
     - Providing Verbose Graphing Options (kind of)
