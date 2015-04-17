@@ -2,7 +2,7 @@ function approx(init_x, init_y, fin_x, h)
 
 syms f(x,y)
 f(x,y) = sym (input('y'' = ', 's'))
-
+clf
 disp('Calculating Eulers . . .')
 hold ;
 x1 = [init_x];
@@ -16,6 +16,22 @@ end
 plot(x1, y1)
 hold off ;
 
+% Vector Field since Euler has the worst approx
+disp('Creating Vector Field . . .')
+hold ;
+for x1 = [init_x:h/2:fin_x];
+    % Use the min and max of y1 to determine best range
+    for y1 = [min(y0):h/2:max(y0)];
+        x_temp =[-.25,.25]*.25;
+        y_temp = f(x1, y1) * x_temp ;
+        lg = sqrt((x_temp(2)-x_temp(1)) ^ 2 + (y_temp(2) - y_temp(1)) ^ 2) * 1/(h)*5;
+        plot(x1 + x_temp/ lg , y1 + y_temp / lg, 'black');
+    end
+end
+hold off;
+
+
+% Improved Euelers
 x0 = [init_x];
 y0 = [init_y];
 counter = 0;
@@ -26,10 +42,10 @@ while counter < (fin_x - init_x) / h;
     y0(counter + 1) = y0(counter) + h / 2 * (f(x0(counter), y0(counter)) + f(x0(counter + 1), y0(counter) + h * f(x0(counter), y0(counter))));
 end
 hold;
-plot(x0, y0)
+plot(x0, y0, 'cyan')
 hold off;
 
-
+% Taylors Series
 disp('Calculating Taylor Differentials . . .')
 hold;
 syms f2(x,y) f3(x,y) f4(x,y)
@@ -45,7 +61,7 @@ while counter < (fin_x - init_x) / h
     x0(counter + 1) = x0(counter) + h;
     y0(counter + 1) = y0(counter) + h* f(x0(counter), y0(counter)) + (h^2)/2 * f2(x0(counter), y0(counter)) + (h^3)/factorial(3 ) * f3(x0(counter), y0(counter)) + (h^4)/factorial(4) * f4(x0(counter), y0(counter));
 end
-plot(x0, y0);
+plot(x0, y0, 'red');
 hold off;
 
 hold;
@@ -66,5 +82,7 @@ while counter < (fin_x - init_x) / h;
     x0(counter + 1) = x0(counter) + h;
     y0(counter + 1) = y0(counter) + 1/6 * (k1(x0(counter), y0(counter)) + 2*k2(x0(counter), y0(counter)) + 2*k3(x0(counter), y0(counter)) + k4(x0(counter), y0(counter)));
 end
-plot(x0, y0)
+plot(x0, y0, 'green')
 hold off;
+
+disp('Finished Graphing.')
