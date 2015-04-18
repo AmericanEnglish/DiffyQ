@@ -11,7 +11,7 @@ counter = 0;
 while counter < (fin_x - init_x) / h
     counter =  counter + 1;
     x0(counter + 1) = x0(counter) + h;
-    Eulers(counter + 1) = f(x0(counter), y1(counter)) * h + y1(counter);
+    Eulers(counter + 1) = f(x0(counter), Eulers(counter)) * h + Eulers(counter);
 end
 
 % Vector Field since Euler has the worst approx
