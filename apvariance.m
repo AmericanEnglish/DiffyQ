@@ -62,10 +62,10 @@ end
 syms z(t)
 z(t) = dsolve(diff(z) == f(t, z), z(init_x) == init_y)
 base = z(x0)
-y1_var = base - y1
-y2_var = base - y2
-y3_var = base - y3
-y4_var = base - y4
+euler_variance = log(abs(base - y1))
+improved_euler_variance = log(abs(base - y2))
+taylor_variance = log(abs(base - y3))
+Runge_Kotta = log(abs(base - y4))
 
-plot(x0, y1_var, x0, y2_var, x0, y3_var, x0, y4_var)
+plot(x0, euler_variance, x0, improved_euler_variance, x0, taylor_variance, x0, Runge_Kotta)
 legend('toggle')
