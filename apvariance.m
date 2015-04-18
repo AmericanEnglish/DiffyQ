@@ -67,6 +67,8 @@ improved_euler_variance = (base - y2)
 taylor_variance = (base - y3)
 Runge_Kotta_variance = (base - y4)
 
+% Log Plot
+% plot(x0, log(abs(euler_variance)), x0, log(abs(improved_euler_variance)), x0, log(abs(taylor_variance)), x0, log(abs(Runge_Kotta_variance)))
 plot(x0, euler_variance, x0, improved_euler_variance, x0, taylor_variance, x0, Runge_Kotta_variance)
 legend('toggle')
 legend('Eulers', 'Improved Eulers', 'Taylor Series Differentials', 'Runge-Kotta')
