@@ -63,9 +63,10 @@ hold
 plot(x0, z(x0), x0, Eulers, x0, IEulers, x0, Taylor, x0, RungeKotta)
 hold off;
 legend('toggle')
-legend('Eulers', 'Improved Eulers', 'Taylor Series Differentials', 'Runge-Kotta','location','bestoutside')
+legend('Integral Of Y', 'Eulers', 'Improved Eulers', 'Taylor Series Differentials', 'Runge-Kotta','location','bestoutside')
 xlabel('X')
-
+ylabel('Y')
+title('Approximation Methods & Original Differential')
 % Vector Field since Euler has the worst approx
 disp('Creating Vector Field . . .')
 hold ;
