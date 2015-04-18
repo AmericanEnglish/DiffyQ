@@ -17,9 +17,9 @@ end
 
 
 % Improved Euelers
+disp('Calculating Improved Eulers . . .')
 y2 = [init_y];
 counter = 0;
-disp('Calculating Improved Eulers . . .')
 while counter < (fin_x - init_x) / h;
     counter = counter + 1;
     y2(counter + 1) = y2(counter) + h / 2 * (f(x0(counter), y2(counter)) + f(x0(counter + 1), y2(counter) + h * f(x0(counter), y2(counter))));
@@ -42,7 +42,6 @@ end
 
 % Runge-Kotta Approximations
 disp('Calculating Runge-Kotta Approximations . . .')
-
 k1(x,y) = h * f(x, y);
 k2(x,y) = h * f(x + h / 2, y + k1 / 2);
 k3(x,y) = h * f(x + h  / 2, y + k2 / 2);
@@ -57,8 +56,10 @@ while counter < (fin_x - init_x) / h;
     x0(counter + 1) = x0(counter) + h;
     y4(counter + 1) = y4(counter) + 1/6 * (k1(x0(counter), y4(counter)) + 2*k2(x0(counter), y4(counter)) + 2*k3(x0(counter), y4(counter)) + k4(x0(counter), y4(counter)));
 end
-disp('Done With Calculations!')
+disp('Done Approximating!')
+
 % Time to solve the function!
+disp('Calculating Variances . . .')
 syms z(t)
 z(t) = dsolve(diff(z) == f(t, z), z(init_x) == init_y);
 base = z(x0);
@@ -66,6 +67,7 @@ euler_variance = (base - y1);
 improved_euler_variance = (base - y2);
 taylor_variance = (base - y3);
 Runge_Kotta_variance = (base - y4);
+disp('Calculations Finished!')
 
 % Log Plot
 % plot(x0, log(abs(euler_variance)), x0, log(abs(improved_euler_variance)), x0, log(abs(taylor_variance)), x0, log(abs(Runge_Kotta_variance)))
