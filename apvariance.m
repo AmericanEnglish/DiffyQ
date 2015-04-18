@@ -60,12 +60,12 @@ end
 
 % Time to solve the function!
 syms z(t)
-z(t) = dsolve(diff(z) == f(t, z), z(init_x) == init_y)
-base = z(x0)
-euler_variance = (base - y1)
-improved_euler_variance = (base - y2)
-taylor_variance = (base - y3)
-Runge_Kotta_variance = (base - y4)
+z(t) = dsolve(diff(z) == f(t, z), z(init_x) == init_y);
+base = z(x0);
+euler_variance = (base - y1);
+improved_euler_variance = (base - y2);
+taylor_variance = (base - y3);
+Runge_Kotta_variance = (base - y4);
 
 % Log Plot
 % plot(x0, log(abs(euler_variance)), x0, log(abs(improved_euler_variance)), x0, log(abs(taylor_variance)), x0, log(abs(Runge_Kotta_variance)))
@@ -75,3 +75,4 @@ legend('Eulers', 'Improved Eulers', 'Taylor Series Differentials', 'Runge-Kotta'
 xlabel('X')
 ylabel('Y Variance From Integral')
 title('Approximation Variances')
+disp('Finished Graphing.')
