@@ -57,7 +57,7 @@ while counter < (fin_x - init_x) / h;
     x0(counter + 1) = x0(counter) + h;
     y4(counter + 1) = y4(counter) + 1/6 * (k1(x0(counter), y4(counter)) + 2*k2(x0(counter), y4(counter)) + 2*k3(x0(counter), y4(counter)) + k4(x0(counter), y4(counter)));
 end
-
+disp('Done With Calculations!')
 % Time to solve the function!
 syms z(t)
 z(t) = dsolve(diff(z) == f(t, z), z(init_x) == init_y);
@@ -71,7 +71,7 @@ Runge_Kotta_variance = (base - y4);
 % plot(x0, log(abs(euler_variance)), x0, log(abs(improved_euler_variance)), x0, log(abs(taylor_variance)), x0, log(abs(Runge_Kotta_variance)))
 plot(x0, euler_variance, x0, improved_euler_variance, x0, taylor_variance, x0, Runge_Kotta_variance)
 legend('toggle')
-legend('Eulers', 'Improved Eulers', 'Taylor Series Differentials', 'Runge-Kotta')
+legend('Eulers', 'Improved Eulers', 'Taylor Series Differentials', 'Runge-Kotta','location','bestoutside')
 xlabel('X')
 ylabel('Y Variance From Integral')
 title('Approximation Variances')
