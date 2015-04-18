@@ -6,12 +6,12 @@ clf
 % Eulers
 disp('Calculating Eulers . . .')
 x0 = [init_x];
-y1 = [init_y];
+Eulers = [init_y];
 counter = 0;
 while counter < (fin_x - init_x) / h
     counter =  counter + 1;
     x0(counter + 1) = x0(counter) + h;
-    y1(counter + 1) = f(x0(counter), y1(counter)) * h + y1(counter);
+    Eulers(counter + 1) = f(x0(counter), y1(counter)) * h + y1(counter);
 end
 
 % Vector Field since Euler has the worst approx
@@ -19,7 +19,7 @@ disp('Creating Vector Field . . .')
 hold ;
 for x1 = [init_x:h/4:fin_x];
     % Use the min and max of y1 to determine best range
-    for y1 = [min(y0):h/2:max(y0)];
+    for y1 = [min(Eulers):h/2:max(Eulers)];
         x_temp =[-.25,.25]*.25;
         y_temp = f(x1, y1) * x_temp ;
         lg = sqrt((x_temp(2)-x_temp(1)) ^ 2 + (y_temp(2) - y_temp(1)) ^ 2) * 1/(h)*5;
@@ -29,13 +29,13 @@ end
 hold off;
 
 
-% Improved Euelers
-y2 = [init_y];
+% Improved Eulers
+IEulers = [init_y];
 counter = 0;
 disp('Calculating Improved Eulers . . .')
 while counter < (fin_x - init_x) / h;
     counter = counter + 1;
-    y2(counter + 1) = y2(counter) + h / 2 * (f(x0(counter), y2(counter)) + f(x0(counter + 1), y2(counter) + h * f(x0(counter), y2(counter))));
+    IEulers(counter + 1) = IEulers(counter) + h / 2 * (f(x0(counter), IEulers(counter)) + f(x0(counter + 1), IEulers(counter) + h * f(x0(counter), IEulers(counter))));
 end
 
 % Taylors Series
@@ -45,11 +45,11 @@ f2(x,y) = diff(f(x,y), x) + diff(f(x,y), y) * f(x,y);
 f3(x,y) = diff(f2(x,y), x) + diff(f2(x,y), y) * f2(x,y);
 f4(x,y) = diff(f3(x,y), x) + diff(f3(x,y), y) * f3(x,y);
 
-y3 = [init_y];
+Taylor = [init_y];
 counter = 0;
 while counter < (fin_x - init_x) / h
     counter = counter + 1;
-    y3(counter + 1) = y3(counter) + h* f(x0(counter), y3(counter)) + (h^2)/2 * f2(x0(counter), y3(counter)) + (h^3)/factorial(3 ) * f3(x0(counter), y3(counter)) + (h^4)/factorial(4) * f4(x0(counter), y3(counter));
+    Taylor(counter + 1) = Taylor(counter) + h* f(x0(counter), Taylor(counter)) + (h^2)/2 * f2(x0(counter), Taylor(counter)) + (h^3)/factorial(3 ) * f3(x0(counter), Taylor(counter)) + (h^4)/factorial(4) * f4(x0(counter), Taylor(counter));
 end
 
 disp('Calculating Runge-Kotta Approximations . . .')
@@ -67,7 +67,7 @@ counter = 0;
 while counter < (fin_x - init_x) / h;
     counter = counter + 1;
     x0(counter + 1) = x0(counter) + h;
-    RungeKotta(counter + 1) = y4(counter) + 1/6 * (k1(x0(counter), y4(counter)) + 2*k2(x0(counter), y4(counter)) + 2*k3(x0(counter), y4(counter)) + k4(x0(counter), y4(counter)));
+    RungeKotta(counter + 1) = RungeKotta(counter) + 1/6 * (k1(x0(counter), RungeKotta(counter)) + 2*k2(x0(counter), RungeKotta(counter)) + 2*k3(x0(counter), RungeKotta(counter)) + k4(x0(counter), RungeKotta(counter)));
 end
 
 % Time to solve the function!
@@ -75,6 +75,6 @@ syms z(t)
 z(t) = dsolve(diff(z) == f(t, z), z(init_x) == init_y)
 
 hold
-plot(x0, z(x0), x0, y1, x0, y2, x0, y3, x0, RungeKotta)
+plot(x0, z(x0), x0, Eulers, x0, IEulers, x0, Taylor, x0, RungeKotta)
 hold off;
 disp('Finished Graphing.')
