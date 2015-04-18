@@ -1,7 +1,7 @@
 function approx(init_x, init_y, fin_x, h)
 
 syms f(x,y)
-f(x,y) = sym (input('y'' = ', 's'))
+f(x,y) = sym (input('y'' = ', 's'));
 clf
 
 % Calculating the values for Eulers
