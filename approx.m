@@ -14,21 +14,6 @@ while counter < (fin_x - init_x) / h
     Eulers(counter + 1) = f(x0(counter), Eulers(counter)) * h + Eulers(counter);
 end
 
-% Vector Field since Euler has the worst approx
-disp('Creating Vector Field . . .')
-hold ;
-for x1 = [init_x:h/4:fin_x];
-    % Use the min and max of y1 to determine best range
-    for y1 = [min(Eulers):h/2:max(Eulers)];
-        x_temp =[-.25,.25]*.25;
-        y_temp = f(x1, y1) * x_temp ;
-        lg = sqrt((x_temp(2)-x_temp(1)) ^ 2 + (y_temp(2) - y_temp(1)) ^ 2) * 1/(h)*5;
-        plot(x1 + x_temp/ lg , y1 + y_temp / lg, 'black');
-    end
-end
-hold off;
-
-
 % Improved Eulers
 IEulers = [init_y];
 counter = 0;
@@ -72,9 +57,26 @@ end
 
 % Time to solve the function!
 syms z(t)
-z(t) = dsolve(diff(z) == f(t, z), z(init_x) == init_y)
+z(t) = dsolve(diff(z) == f(t, z), z(init_x) == init_y);
 
 hold
 plot(x0, z(x0), x0, Eulers, x0, IEulers, x0, Taylor, x0, RungeKotta)
+hold off;
+legend('toggle')
+legend('Eulers', 'Improved Eulers', 'Taylor Series Differentials', 'Runge-Kotta','location','bestoutside')
+xlabel('X')
+
+% Vector Field since Euler has the worst approx
+disp('Creating Vector Field . . .')
+hold ;
+for x1 = [init_x:h:fin_x];
+    % Use the min and max of y1 to determine best range
+    for y1 = [min(Eulers):h:max(Eulers)];
+        x_temp =[-.25,.25]*.25;
+        y_temp = f(x1, y1) * x_temp ;
+        lg = sqrt((x_temp(2)-x_temp(1)) ^ 2 + (y_temp(2) - y_temp(1)) ^ 2) * 1/(h)*2;
+        plot(x1 + x_temp/ lg , y1 + y_temp / lg, 'black');
+    end
+end
 hold off;
 disp('Finished Graphing.')
