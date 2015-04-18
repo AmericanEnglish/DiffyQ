@@ -27,7 +27,6 @@ end
 
 % Taylors Series
 disp('Calculating Taylor Differentials . . .')
-hold;
 syms f2(x,y) f3(x,y) f4(x,y)
 f2(x,y) = diff(f(x,y), x) + diff(f(x,y), y) * f(x,y);
 f3(x,y) = diff(f2(x,y), x) + diff(f2(x,y), y) * f2(x,y);
@@ -58,3 +57,15 @@ while counter < (fin_x - init_x) / h;
     x0(counter + 1) = x0(counter) + h;
     y4(counter + 1) = y4(counter) + 1/6 * (k1(x0(counter), y4(counter)) + 2*k2(x0(counter), y4(counter)) + 2*k3(x0(counter), y4(counter)) + k4(x0(counter), y4(counter)));
 end
+
+% Time to solve the function!
+syms z(t)
+z(t) = dsolve(diff(z) == f(t, z), z(init_x) == init_y)
+base = z(x0)
+y1_var = base - y1
+y2_var = base - y2
+y3_var = base - y3
+y4_var = base - y4
+
+plot(x0, y1_var, x0, y2_var, x0, y3_var, x0, y4_var)
+legend('toggle')
