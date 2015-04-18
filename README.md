@@ -9,6 +9,8 @@ This project was given to me by my Differential Equations teacher Marco Weidenho
     - Runge - Kotta Classical 4th Order
     - Taylor Series Differentiation
     - Combining All 4
+    - Added a variance grapher. Graphs log(y), x
+    - Combo Approximation now also graphs Solved function
 - To Do
     - Providing Verbose Graphing Options (kind of)
         * Time permitting
