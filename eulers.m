@@ -7,16 +7,16 @@ f(x,y) = sym (input('y'' = ', 's'))
 clf
 % Graph it
 hold ;
-x1 = [init_x];
-y1 = [init_y];
+x0 = [init_x];
+y0 = [init_y];
 counter = 0;
 disp('Calculating Values . . .')
 while counter < (fin_x - init_x) / step
     counter =  counter + 1;
-    x1(counter + 1) = x1(counter) + step;
-    y1(counter + 1) = f(x1(counter), y1(counter)) * step + y1(counter);
+    x0(counter + 1) = x0(counter) + step;
+    y0(counter + 1) = f(x0(counter), y0(counter)) * step + y0(counter);
 end
-plot(x1, y1)
+plot(x0, y0)
 hold off ;
 
 % Vector Field
