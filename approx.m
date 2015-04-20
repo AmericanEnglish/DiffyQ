@@ -37,7 +37,7 @@ while counter < (fin_x - init_x) / h
     Taylor(counter + 1) = Taylor(counter) + h* f(x0(counter), Taylor(counter)) + (h^2)/2 * f2(x0(counter), Taylor(counter)) + (h^3)/factorial(3 ) * f3(x0(counter), Taylor(counter)) + (h^4)/factorial(4) * f4(x0(counter), Taylor(counter));
 end
 
-disp('Calculating Runge-Kotta Approximations . . .')
+disp('Calculating Runge-Kutta Approximations . . .')
 
 k1(x,y) = h * f(x, y);
 k2(x,y) = h * f(x + h / 2, y + k1 / 2);
@@ -46,13 +46,13 @@ k4(x,y) = h * f(x + h, y + k3);
 
 % Calculate using h values
 x0 = [init_x];
-RungeKotta = [init_y];
+RungeKutta = [init_y];
 counter = 0;
 % Plot the approximations
 while counter < (fin_x - init_x) / h;
     counter = counter + 1;
     x0(counter + 1) = x0(counter) + h;
-    RungeKotta(counter + 1) = RungeKotta(counter) + 1/6 * (k1(x0(counter), RungeKotta(counter)) + 2*k2(x0(counter), RungeKotta(counter)) + 2*k3(x0(counter), RungeKotta(counter)) + k4(x0(counter), RungeKotta(counter)));
+    RungeKutta(counter + 1) = RungeKutta(counter) + 1/6 * (k1(x0(counter), RungeKutta(counter)) + 2*k2(x0(counter), RungeKutta(counter)) + 2*k3(x0(counter), RungeKutta(counter)) + k4(x0(counter), RungeKutta(counter)));
 end
 
 % Time to solve the function!
@@ -60,10 +60,10 @@ syms z(t)
 z(t) = dsolve(diff(z) == f(t, z), z(init_x) == init_y);
 
 hold
-plot(x0, z(x0), x0, Eulers, x0, IEulers, x0, Taylor, x0, RungeKotta)
+plot(x0, z(x0), x0, Eulers, x0, IEulers, x0, Taylor, x0, RungeKutta)
 hold off;
 legend('toggle')
-legend('Integral Of Y', 'Eulers', 'Improved Eulers', 'Taylor Series Differentials', 'Runge-Kotta','location','bestoutside')
+legend('Integral Of Y', 'Eulers', 'Improved Eulers', 'Taylor Series Differentials', 'Runge-Kutta','location','bestoutside')
 xlabel('X')
 ylabel('Y')
 title('Approximation Methods & Original Differential')
