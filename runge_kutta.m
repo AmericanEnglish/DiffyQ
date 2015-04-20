@@ -4,6 +4,7 @@ syms f(x,y)
 
 % Acquire the differential equation
 f(x, y) = sym (input('y'' = ', 's'))
+clf
 syms k1(x,y) k2(x,y) k3(x,y) k4(x,y)
 % Set up k1 -> k4
 k1(x,y) = h * f(x, y);
