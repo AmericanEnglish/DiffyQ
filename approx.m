@@ -63,7 +63,7 @@ hold
 plot(x0, z(x0), x0, Eulers, x0, IEulers, x0, Taylor, x0, RungeKutta)
 hold off;
 legend('toggle')
-legend('Integral Of Y', 'Eulers', 'Improved Eulers', 'Taylor Series Differentials', 'Runge-Kutta','location','bestoutside')
+legend('Integral Of Y', 'Eulers', 'Improved Eulers', 'Taylor Series Differentials', 'Runge-Kutta','location','best')
 xlabel('X')
 ylabel('Y')
 title('Approximation Methods & Original Differential')
@@ -75,7 +75,7 @@ for x1 = [init_x:h:fin_x];
     for y1 = [min(Eulers):h:max(Eulers)];
         x_temp =[-.25,.25]*.25;
         y_temp = f(x1, y1) * x_temp ;
-        lg = sqrt((x_temp(2)-x_temp(1)) ^ 2 + (y_temp(2) - y_temp(1)) ^ 2) * 1/(h)*2;
+        lg = sqrt((x_temp(2)-x_temp(1)) ^ 2 + (y_temp(2) - y_temp(1)) ^ 2) * 20;
         plot(x1 + x_temp/ lg , y1 + y_temp / lg, 'black');
     end
 end
