@@ -5,7 +5,7 @@ syms f(x,y)
 
 % Prompt for function
 disp('Use a large step size')
-f(x,y) = sym (input('y'' = ', 's'))
+f(x,y) = sym (input('y'' = ', 's'));
 
 % Setup the 4th order taylor
 syms f2(x,y) f3(x,y) f4(x,y)
