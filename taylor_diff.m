@@ -4,13 +4,15 @@ function taylor_diff(init_x, init_y, fin_x, h)
 syms f(x,y)
 
 % Prompt for function
+disp('Use a large step size')
 f(x,y) = sym (input('y'' = ', 's'))
 
 % Setup the 4th order taylor
 syms f2(x,y) f3(x,y) f4(x,y)
-f2(x,y) = diff(f(x,y), x) + diff(f(x,y), y) * f(x,y);
-f3(x,y) = diff(f2(x,y), x) + diff(f2(x,y), y) * f2(x,y);
-f4(x,y) = diff(f3(x,y), x) + diff(f3(x,y), y) * f3(x,y);
+f(x,y) = expand(f(x,y));
+f2(x,y) = expand(diff(f(x,y), x) + diff(f(x,y), y) * f(x,y));
+f3(x,y) = expand(diff(f2(x,y), x) + diff(f2(x,y), y) * f2(x,y));
+f4(x,y) = expand(diff(f3(x,y), x) + diff(f3(x,y), y) * f3(x,y));
 
 x0 = [init_x];
 y0 = [init_y];
@@ -20,7 +22,7 @@ while counter < (fin_x - init_x) / h
     x0(counter + 1) = x0(counter) + h;
     y0(counter + 1) = y0(counter) + h* f(x0(counter), y0(counter)) + (h^2)/2 * f2(x0(counter), y0(counter)) + (h^3)/factorial(3 ) * f3(x0(counter), y0(counter)) + (h^4)/factorial(4) * f4(x0(counter), y0(counter));
 end
-plot(x0, y0);
+plot(x0, y0, 'red');
 
 disp('Creating Vector Field . . .')
 hold ;
