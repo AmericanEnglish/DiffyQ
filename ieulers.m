@@ -28,7 +28,7 @@ for x1 = [init_x:step/2:fin_x];
     for y1 = [min(y0):step/2:max(y0)];
         x_temp =[-.25,.25]*.25;
         y_temp = f(x1, y1) * x_temp ;
-        lg = sqrt((x_temp(2)-x_temp(1)) ^ 2 + (y_temp(2) - y_temp(1)) ^ 2) * 1/step;
+        lg = sqrt((x_temp(2)-x_temp(1)) ^ 2 + (y_temp(2) - y_temp(1)) ^ 2) * 20;
         plot(x1 + x_temp/ lg , y1 + y_temp / lg, 'black');
     end
 end
