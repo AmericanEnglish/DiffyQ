@@ -69,8 +69,8 @@ taylor_variance = (base - y3);
 Runge_Kutta_variance = (base - y4);
 disp('Calculations Finished!')
 
-% Log Plot
-plot(x0, log(abs(euler_variance)), x0, log(abs(improved_euler_variance)), x0, log(abs(taylor_variance)), x0, log(abs(Runge_Kutta_variance)))
+% Log10 Plot
+plot(x0, log10(abs(euler_variance)), x0, log10(abs(improved_euler_variance)), x0, log10(abs(taylor_variance)), x0, log10(abs(Runge_Kutta_variance)))
 legend('toggle')
 legend('Eulers', 'Improved Eulers', 'Taylor Series Differentials', 'Runge-Kutta','location','best')
 xlabel('X')
