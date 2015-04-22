@@ -1,4 +1,4 @@
-function approx(init_x, init_y, fin_x, h)
+function logvariance(init_x, init_y, fin_x, h)
 
 syms f(x,y)
 f(x,y) = sym (input('y'' = ', 's'));
