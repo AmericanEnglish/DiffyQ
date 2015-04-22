@@ -74,6 +74,6 @@ plot(x0, log10(abs(euler_variance)), x0, log10(abs(improved_euler_variance)), x0
 legend('toggle')
 legend('Eulers', 'Improved Eulers', 'Taylor Series Differentials', 'Runge-Kutta','location','best')
 xlabel('X')
-ylabel('ln(Y) Variance From Integral')
-title('Approximation Variances')
+ylabel('log(Y Variance From Integral)')
+title('Variance Of Approximations For ')
 disp('Finished Graphing.')
